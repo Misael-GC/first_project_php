@@ -1,0 +1,19 @@
+{
+    "name": "mgc22/finanzas",
+    "description": "proyecto de conexion con bd",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Misael-GC",
+            "email": "misael.gomez1623@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Database\\": "database"
+        }
+    },
+    "require": {}
+}
