@@ -37,9 +37,10 @@ class Connection{
         if($mysqli->connect_errno)
             die("fallo la conexión: {$mysqli->connect_error}");
 
-
+        //cualquier caracter en la consulta
         $setnames = $mysqli->prepare("SET NAMES 'utf8'");
         $setnames->execute();
+
 
         $this->connection = $mysqli;
 
