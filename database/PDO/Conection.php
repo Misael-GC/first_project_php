@@ -28,11 +28,16 @@ class Conection{
         $username = "root";
         $password = "Misael_12";
 
-        $conection = new \PDO("mysql:host=$server;dbname=$database", $username, $password);
+        try {
+            $this->connection = new \PDO("mysql:host=$server;dbname=$database;charset=utf8", $username, $password);
+            $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        } catch (\PDOException $e) {
+            die('Error de conexión: ' . $e->getMessage());
+        }
 
 
-        $setnames = $conection->prepare("SET NAMES 'utf8'");
-        $setnames->execute();
+        //$setnames = $conection->prepare("SET NAMES 'utf8'");
+        //$setnames->execute();
 
     }
 }

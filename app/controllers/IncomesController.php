@@ -13,7 +13,6 @@ class IncomesController{
 
         $stmt = $connection->prepare("INSERT INTO incomes(payment_method, type, date, amount, description) VALUES( ?, ?, ?, ?, ?)");
         $stmt->bind_param('iisds',$payment_method, $type, $date, $amount, $description);
-        
         $payment_method = $data['payment_method'];
         $type = $data['type'];
         $date = $data['date'];

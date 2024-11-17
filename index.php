@@ -11,21 +11,22 @@ $incomes_controller = new IncomesController();
 
 
 // Conexión con  MySQLi
-$incomes_controller->store([
+/*$incomes_controller->store([
     "payment_method" => PaymentMethodEnum::BankAccount->value,
     "type" => IncomeTypeEnum::Salary->value,
     "date"=> date("Y-m-d H:i:s"),
     "amount"=> 1000,
     "description"=> "Salario de junio"
 
+]);*/
+
+
+//Conexión con PDO
+$withdrawal_controller = new withdrawalscontroller();
+$withdrawal_controller->store([
+    "payment_method" => PaymentMethodEnum::CreditCard->value,
+    "type" => WithdrawlTypeEnum::Purchase->value,
+    "time"=> date("y-m-d h:i:s"),
+    "amount"=> 20,
+    "description"=> "Compras Buen Fin"
 ]);
-
-
-// $withdrawal_controller = new WithdrawalsController();
-// $withdrawal_controller->store([
-//     "payment_method" => PaymentMethodEnum::CreditCard->value,
-//     "type" => WithdrawlTypeEnum::Purchase->value,
-//     "date"=> date("Y-m-d H:i:s"),
-//     "amount"=> 200,
-//     "description"=> "Retiro de salario"
-// ]);
