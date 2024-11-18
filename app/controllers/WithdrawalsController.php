@@ -55,8 +55,31 @@ class WithdrawalsController{
         //echo "El registro id $id dice que te gastaste {$result['amount']} USD en {$result['description']}";
     }
     public function edit(){}
-    public function update(){}
-    public function destroy(){}
+    public function update($data, $id){
+        $stmt = $this->connection->prepare("UPDATE withdrawals SET 
+            payment_method = :payment_method, 
+            type = :type, 
+            time = :time, 
+            amount = :amount, 
+            description = :description
+        WHERE id=:id;");
+
+        $stmt->execute([
+            ":id" => $id,
+            ":payment_method" => $data["payment_method"],
+            ":type" => $data["type"],
+            ":time" => $data["time"],
+            ":amount" => $data["amount"],
+            ":description" => $data["description"],
+        ]);
+    }
+    public function destroy($id){
+        $delete = $this->connection->prepare("DELETE FROM withdrawals WHERE id=:id;");
+
+        $delete->execute([
+            ":id" => $id
+        ]);
+    }
 }
 
 

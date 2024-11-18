@@ -36,15 +36,35 @@ class IncomesController{
 
         $stmt->execute();
     }
-    public function show(){}
+    public function show($id){
+        $stmt = $this->connection->prepare("SELECT * FROM incomes WHERE id = :id");
+        $stmt->execute([":id"=> $id]);
+    }
     public function edit(){}
-    public function update(){}
+    public function update($data, $id){
+        $stmt = $this->connection->prepare("UPDATE incomes SET 
+            payment_method = :payment_method, 
+            type = :type, 
+            date = :date, 
+            amount = :amount, 
+            description = :description
+        WHERE id=:id;");
+
+        $stmt->execute([
+            ":id" => $id,
+            ":payment_method" => $data["payment_method"],
+            ":type" => $data["type"],
+            ":date" => $data["date"],
+            ":amount" => $data["amount"],
+            ":description" => $data["description"],
+        ]);
+
+    }
     public function destroy($id){
         $this->connection->beginTransaction();
 
-        $this->connection->exec("DRP TABLE income_test");
+        //$this->connection->exec("DRP TABLE income_test"); //le vale la transacción se ejecuta solo sin preguntar
 
-        /*
         $stmt = $this->connection->prepare("DELETE FROM incomes WHERE id = :id");
         $stmt->execute([":id"=> $id]);
 
@@ -54,7 +74,6 @@ class IncomesController{
             $this->connection->rollBack();
         else
             $this->connection->commit();
-        */
     }
 }
 
