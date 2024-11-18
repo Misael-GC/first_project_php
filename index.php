@@ -24,9 +24,9 @@ $incomes_controller = new IncomesController();
 //Conexión con PDO
 $withdrawal_controller = new withdrawalscontroller();
 $withdrawal_controller->store([
-    ":payment_method" => PaymentMethodEnum::CreditCard->value,
-    ":type" => WithdrawlTypeEnum::Purchase->value,
-    ":time"=> date("y-m-d h:i:s"),
-    ":amount"=> 20,
-    ":description"=> "Compras Buen Fin sunday"
+    "payment_method" => PaymentMethodEnum::CreditCard->value,
+    "type" => WithdrawlTypeEnum::Purchase->value,
+    "time"=> date("y-m-d h:i:s"),
+    "amount"=> 20,
+    "description"=> "Compras Buen Fin sunday 17/11/2024"
 ]);
