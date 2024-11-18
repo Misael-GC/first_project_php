@@ -22,7 +22,7 @@ $incomes_controller = new IncomesController();
 
 
 //Conexión con PDO
-$withdrawal_controller = new withdrawalscontroller();
+/*$withdrawal_controller = new withdrawalscontroller();
 $withdrawal_controller->store([
     "payment_method" => PaymentMethodEnum::CreditCard->value,
     "type" => WithdrawlTypeEnum::Purchase->value,
@@ -30,3 +30,7 @@ $withdrawal_controller->store([
     "amount"=> 20,
     "description"=> "Compras Buen Fin sunday 17/11/2024"
 ]);
+*/
+
+$withdrawal_controller = new withdrawalscontroller();
+$withdrawal_controller->index();
