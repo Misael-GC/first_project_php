@@ -31,6 +31,15 @@ $withdrawal_controller->store([
     "description"=> "Compras Buen Fin sunday 17/11/2024"
 ]);
 */
-
+/*
 $withdrawal_controller = new withdrawalscontroller();
 $withdrawal_controller->index();
+*/
+
+/*
+$withdrawal_controller = new withdrawalscontroller();
+$withdrawal_controller->index();
+*/
+
+$withdrawal_controller = new withdrawalscontroller();
+$withdrawal_controller->show(1);
