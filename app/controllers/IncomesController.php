@@ -39,7 +39,19 @@ class IncomesController{
     public function show(){}
     public function edit(){}
     public function update(){}
-    public function destroy(){}
+    public function destroy($id){
+        $this->connection->beginTransaction();
+
+        $stmt = $this->connection->prepare("DELETE FROM incomes WHERE id = :id");
+        $stmt->execute([":id"=> $id]);
+
+        $sure = readline("¿De verdad quieres eliminar este registro? ");
+
+        if($sure == "no")
+            $this->connection->rollBack();
+        else
+            $this->connection->commit();
+    }
 }
 
 /*
