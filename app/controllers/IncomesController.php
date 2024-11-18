@@ -42,6 +42,9 @@ class IncomesController{
     public function destroy($id){
         $this->connection->beginTransaction();
 
+        $this->connection->exec("DRP TABLE income_test");
+
+        /*
         $stmt = $this->connection->prepare("DELETE FROM incomes WHERE id = :id");
         $stmt->execute([":id"=> $id]);
 
@@ -51,6 +54,7 @@ class IncomesController{
             $this->connection->rollBack();
         else
             $this->connection->commit();
+        */
     }
 }
 
