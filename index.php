@@ -41,10 +41,12 @@ $withdrawal_controller = new withdrawalscontroller();
 $withdrawal_controller->index();
 */
 
-/*
+
 $withdrawal_controller = new withdrawalscontroller();
 $withdrawal_controller->show(1);
-*/
 
+
+/*
 $incomes_controller = new IncomesController();
 $incomes_controller->index();
+*/

@@ -49,9 +49,10 @@ class WithdrawalsController{
     public function show($id){
         $stmt = $this->connection->prepare("SELECT * FROM withdrawals WHERE id = :id");
         $stmt->execute([':id' => $id]);
-        $result = $stmt->fetch();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        echo "El registro id $id dice que te gastaste {$result['amount']} USD en {$result['description']}";
+        var_dump($result);
+        //echo "El registro id $id dice que te gastaste {$result['amount']} USD en {$result['description']}";
     }
     public function edit(){}
     public function update(){}
